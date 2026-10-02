@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Game</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+
+<body>
+
+    <div class="game-container">
+
+        <div class="left-section">
+
+            <h1>Word Game</h1>
+
+            <p class="instruction">
+                Find the missing letters in the word.
+            </p>
+
+            <div class="score-board">
+                <span>Score: <b id="score">100</b></span>
+                <span>Wrong Moves: <b id="wrongMoves">0</b> / 5</span>
+            </div>
+
+            <div id="wordDisplay"></div>
+
+            <p class="missing-text">
+                Enter the missing letters:
+            </p>
+
+            <div id="inputArea"></div>
+
+            <div class="buttons">
+                <button id="submitBtn">Submit</button>
+                <button id="restartBtn">Restart</button>
+            </div>
+
+            <p id="message"></p>
+
+        </div>
+
+        <div class="right-section">
+            <div id="face">🙂</div>
+        </div>
+
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
