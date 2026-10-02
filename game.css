@@ -1,150 +1,150 @@
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #eef2f3;
-    color: #263238;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #eef2f3;
+  color: #263238;
 }
 
 .game-container {
-    width: 850px;
-    margin: 100px auto;
-    padding: 50px;
-    background-color: white;
-    border-radius: 15px;
+  width: 850px;
+  margin: 100px auto;
+  padding: 50px;
+  background-color: white;
+  border-radius: 15px;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
 }
 
 .left-section {
-    width: 65%;
-    text-align: center;
+  width: 65%;
+  text-align: center;
 }
 
 .right-section {
-    width: 30%;
-    text-align: center;
+  width: 30%;
+  text-align: center;
 }
 
 h1 {
-    font-size: 40px;
-    color: #344e5c;
-    margin-bottom: 10px;
+  font-size: 40px;
+  color: #344e5c;
+  margin-bottom: 10px;
 }
 
 .instruction {
-    font-size: 17px;
-    color: #68777f;
-    margin-bottom: 25px;
+  font-size: 20px;
+  color: #68777f;
+  margin-bottom: 25px;
 }
 
 .score-board {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-bottom: 35px;
-    color: #56666f;
-    font-size: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 35px;
+  color: #56666f;
+  font-size: 19px;
 }
 
 #wordDisplay {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
 }
 
 .letter {
-    width: 40px;
-    height: 45px;
+  width: 40px;
+  height: 45px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    font-size: 28px;
-    font-weight: bold;
-    color: #344e5c;
+  font-size: 30px;
+  font-weight: bold;
+  color: #344e5c;
 
-    border-bottom: 3px solid #587b8c;
+  border-bottom: 3px solid #587b8c;
 }
 
 .letter-input {
-    width: 40px;
-    height: 45px;
+  width: 40px;
+  height: 45px;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 
-    text-align: center;
-    font-size: 26px;
-    font-weight: bold;
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
 
-    border: 1px solid #b8c4ca;
-    border-radius: 6px;
+  border: 1px solid #b8c4ca;
+  border-radius: 6px;
 
-    color: #344e5c;
-    outline: none;
+  color: #344e5c;
+  outline: none;
 }
 
 .letter-input:focus {
-    border-color: #587b8c;
+  border-color: #587b8c;
 }
 
 .missing-text {
-    font-size: 16px;
-    color: #56666f;
+  font-size: 16px;
+  color: #56666f;
 }
 
 #inputArea {
-    margin-bottom: 25px;
+  margin-bottom: 25px;
 }
 
 .buttons {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 button {
-    padding: 11px 25px;
-    margin: 5px;
+  padding: 11px 25px;
+  margin: 5px;
 
-    font-size: 15px;
-    font-weight: bold;
+  font-size: 15px;
+  font-weight: bold;
 
-    border: none;
-    border-radius: 6px;
+  border: none;
+  border-radius: 6px;
 
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #submitBtn {
-    background-color: #587b8c;
-    color: white;
+  background-color: #587b8c;
+  color: white;
 }
 
 #submitBtn:hover {
-    background-color: #466575;
+  background-color: #466575;
 }
 
 #restartBtn {
-    background-color: #dfe6e9;
-    color: #344e5c;
+  background-color: #dfe6e9;
+  color: #344e5c;
 }
 
 #restartBtn:hover {
-    background-color: #cbd5d9;
+  background-color: #cbd5d9;
 }
 
 #message {
-    margin-top: 20px;
-    font-size: 17px;
-    font-weight: bold;
+  margin-top: 20px;
+  font-size: 17px;
+  font-weight: bold;
 }
 
 #face {
-    font-size: 140px;
+  font-size: 140px;
 }
