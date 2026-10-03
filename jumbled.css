@@ -19,10 +19,9 @@ body {
 }
 
 .game-container {
-  position: relative;
-  width: 900px;
+  width: 850px;
   max-width: 95%;
-  padding: 45px;
+  padding: 35px;
 
   background: white;
   border: 1px solid #e2e8f0;
@@ -32,33 +31,23 @@ body {
   text-align: center;
 }
 
-.left-section {
-  width: 100%;
+.game-header h1 {
+  margin: 0 0 8px;
+  font-size: 55px;
 }
 
-.right-section {
-  position: absolute;
-  right: 50px;
-  top: 180px;
-}
-
-h1 {
-  margin: 0 0 12px;
-  font-size: 50px;
-}
-
-.instruction {
-  margin-bottom: 25px;
-  font-size: 20px;
-  color: #475569;
+.game-header p {
+  margin-bottom: 22px;
+  color: #64748b;
+  font-size: 24px;
 }
 
 .score-board {
   display: flex;
   justify-content: center;
   gap: 15px;
-  margin-bottom: 25px;
-  font-size: 18px;
+  margin-bottom: 20px;
+  font-size: 20px;
 }
 
 .score-board span {
@@ -72,57 +61,82 @@ h1 {
   color: #4f46e5;
 }
 
-#wordDisplay {
+.sentence-box,
+.answer-box {
+  margin: 15px 0;
+  padding: 22px;
+  min-height: 120px;
+
+  background: #f8fafc;
+  border: 1px solid #dbe3ee;
+  border-radius: 15px;
+}
+
+.sentence-box h3,
+.answer-box h3 {
+  margin: 0 0 18px;
+  font-size: 22px;
+  color: #334155;
+}
+
+#jumbledWords,
+#answerArea {
   display: flex;
   justify-content: center;
-  gap: 8px;
+  align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 20px;
+  gap: 10px;
 }
 
-.letter,
-.letter-input {
-  width: 48px;
-  height: 52px;
-  text-align: center;
-  font-size: 30px;
-  font-weight: bold;
+.word-button {
+  padding: 11px 18px;
+  background: #4f46e5;
+  color: white;
+  border: none;
   border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.letter {
-  padding-top: 10px;
-  background: white;
-  border: 1px solid #cbd5e1;
+.word-button:hover {
+  background: #4338ca;
 }
 
-.letter-input {
-  color: #4f46e5;
+.answer-word {
+  padding: 11px 18px;
   background: #eef2ff;
-  border: 2px solid #c7d2fe;
-  outline: none;
+  color: #3730a3;
+  border: 1px solid #c7d2fe;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.letter-input:focus {
-  border-color: #4f46e5;
+#message {
+  min-height: 24px;
+  font-size: 20px;
+  color: #4f46e5;
+  font-weight: bold;
 }
 
-.missing-text {
-  font-size: 18px;
-  color: #64748b;
+.face {
+  font-size: 75px;
+  margin: 10px;
 }
 
 .buttons {
   display: flex;
   justify-content: center;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 button {
-  padding: 12px 24px;
+  padding: 11px 20px;
   border: none;
   border-radius: 8px;
-  font-size: 17px;
+  font-size: 19px;
   font-weight: bold;
   cursor: pointer;
 }
@@ -132,48 +146,47 @@ button {
   color: white;
 }
 
+#clearBtn,
 #restartBtn {
   background: #f1f5f9;
   color: #334155;
   border: 1px solid #e2e8f0;
 }
 
+#nextBtn {
+  background: #6366f1;
+  color: white;
+}
+
 .home-button {
-  margin-top: 12px;
+  margin-top: 15px;
 }
 
 .home-button button {
   background: #0f766e;
   color: white;
-}
-
-#message {
-  min-height: 24px;
   font-size: 18px;
-  color: #4f46e5;
-  font-weight: bold;
 }
 
-#face {
-  font-size: 110px;
-}
-
-@media (max-width: 700px) {
+@media (max-width: 600px) {
   .game-container {
-    padding: 30px 20px;
+    padding: 25px 15px;
   }
 
-  .right-section {
-    position: static;
-    margin-top: 20px;
-  }
-
-  h1 {
-    font-size: 38px;
+  .game-header h1 {
+    font-size: 39px;
   }
 
   .score-board {
     flex-direction: column;
     align-items: center;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .buttons button {
+    width: 100%;
   }
 }

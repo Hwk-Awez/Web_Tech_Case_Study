@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Jumbled Sentence</title>
+    <link rel="stylesheet" href="jumbled.css" />
+  </head>
+
+  <body>
+    <div class="game-container">
+      <div class="game-header">
+        <h1>🧩 Jumbled Sentence</h1>
+        <p>Arrange the words to make a correct sentence.</p>
+      </div>
+
+      <div class="score-board">
+        <span>Score: <b id="score">100</b></span>
+        <span>Wrong Moves: <b id="wrongMoves">0</b> / 5</span>
+      </div>
+
+      <div class="sentence-box">
+        <h3>Jumbled Words</h3>
+        <div id="jumbledWords"></div>
+      </div>
+
+      <div class="answer-box">
+        <h3>Your Sentence</h3>
+        <div id="answerArea"></div>
+      </div>
+
+      <p id="message"></p>
+
+      <div class="face" id="face">🙂</div>
+
+      <div class="buttons">
+        <button id="submitBtn">Submit</button>
+        <button id="clearBtn">Clear</button>
+        <button id="nextBtn">Next Sentence</button>
+        <button id="restartBtn">Restart</button>
+      </div>
+
+      <div class="home-button">
+        <button onclick="window.location.href = 'index.html'">🏠 Home</button>
+      </div>
+    </div>
+
+    <script src="jumbled.js"></script>
+  </body>
+</html>

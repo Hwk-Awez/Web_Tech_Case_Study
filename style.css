@@ -1,44 +1,90 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #eef2f3;
-    color: #263238;
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: #0f172a;
+
+  background:
+    radial-gradient(circle at 15% 20%, #2144b8, transparent 35%),
+    radial-gradient(circle at 85% 80%, #020222, transparent 50%), #f8fafc;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px;
 }
 
 .container {
-    width: 450px;
-    margin: 150px auto;
-    padding: 50px;
-    text-align: center;
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 1100px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
 }
 
-h1 {
-    font-size: 44px;
-    margin-bottom: 15px;
-    color: #344e5c;
+.game-card {
+  padding: 40px 30px;
+
+  text-align: center;
+
+  background: white;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
 }
 
-p {
-    font-size: 17px;
-    line-height: 1.6;
-    color: #68777f;
-    margin-bottom: 35px;
+.game-card h1 {
+  margin: 0 0 15px;
+
+  font-size: 45px;
+}
+
+.game-card p {
+  margin-bottom: 25px;
+
+  font-size: 20px;
+
+  color: #475569;
 }
 
 button {
-    padding: 13px 35px;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    background-color: #587b8c;
-    border: none;
-    border-radius: 7px;
-    cursor: pointer;
+  padding: 13px 30px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #4f46e5;
+  color: white;
+
+  font-size: 20px;
+  font-weight: bold;
+
+  cursor: pointer;
 }
 
 button:hover {
-    background-color: #3f6375;
+  background: #4338ca;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 700px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .game-card h1 {
+    font-size: 36px;
+  }
+
+  .game-card p {
+    font-size: 18px;
+  }
 }

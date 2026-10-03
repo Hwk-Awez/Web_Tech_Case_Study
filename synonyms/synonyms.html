@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Synonyms Game</title>
+    <link rel="stylesheet" href="synonyms.css" />
+  </head>
+
+  <body>
+    <div class="game-container">
+      <div class="game-header">
+        <h1>Synonyms Game</h1>
+        <p>Choose the word with the same meaning.</p>
+      </div>
+
+      <div class="score-board">
+        <span>Score: <b id="score">0</b></span>
+        <span>Question: <b id="questionNumber">1</b></span>
+      </div>
+
+      <div class="word-box">
+        <h3>Find the synonym of:</h3>
+        <div id="word">Happy</div>
+      </div>
+
+      <div id="options" class="options">
+        <!-- Options will appear here -->
+      </div>
+
+      <p id="message"></p>
+
+      <div class="buttons">
+        <button id="submitBtn">Submit</button>
+        <button id="nextBtn">Next</button>
+        <button id="restartBtn">Restart</button>
+      </div>
+
+      <div class="home-button">
+        <button onclick="window.location.href = '../index.html'">Home</button>
+      </div>
+    </div>
+
+    <script src="synonyms.js"></script>
+  </body>
+</html>

@@ -38,12 +38,12 @@ const words = [
   { word: "debugging", hint: "Finding and fixing errors in a program." },
 ];
 
-// 2. Game variables (these change while playing)
-let currentWord = ""; // the word to guess
-let currentHint = ""; // the hint for that word
-let score = 100; // player's score
-let wrongMoves = 0; // number of wrong tries
-let hiddenPositions = []; // positions of letters the player must guess
+// 2. Game variables
+let currentWord = "";
+let currentHint = "";
+let score = 100;
+let wrongMoves = 0;
+let hiddenPositions = [];
 
 // 3. Get elements from the HTML page
 const wordDisplay = document.getElementById("wordDisplay");
@@ -54,14 +54,13 @@ const wrongDisplay = document.getElementById("wrongMoves");
 const face = document.getElementById("face");
 const message = document.getElementById("message");
 
-// 4. Start (or restart) the game
+// 4. Start or restart the game
 function startGame() {
-  // Pick a random word from the list
   const randomIndex = Math.floor(Math.random() * words.length);
+
   currentWord = words[randomIndex].word;
   currentHint = words[randomIndex].hint;
 
-  // Reset everything
   score = 100;
   wrongMoves = 0;
   hiddenPositions = [];
@@ -75,56 +74,54 @@ function startGame() {
   showWord();
 }
 
-// 5. Show the word on the screen
-//    Some letters are shown, the rest are empty boxes to fill in
+// 5. Show the word
 function showWord() {
   wordDisplay.innerHTML = "";
 
-  // Decide which letters to show (about 30% of the word)
   const howManyToShow = Math.round(currentWord.length * 0.3);
   const shownPositions = [];
 
   while (shownPositions.length < howManyToShow) {
     const position = Math.floor(Math.random() * currentWord.length);
+
     if (!shownPositions.includes(position)) {
       shownPositions.push(position);
     }
   }
 
-  // Go through each letter of the word
   for (let i = 0; i < currentWord.length; i++) {
     if (shownPositions.includes(i)) {
-      // Show this letter
       wordDisplay.appendChild(makeLetterBox(currentWord[i]));
     } else {
-      // Hide this letter: make an input box instead
       hiddenPositions.push(i);
 
       const input = document.createElement("input");
+
       input.type = "text";
       input.maxLength = 1;
       input.className = "letter-input";
-      input.dataset.position = i; // remember which letter this box is for
+      input.dataset.position = i;
 
       wordDisplay.appendChild(input);
     }
   }
 }
 
-// Small helper: makes a box that shows one letter
+// 6. Make a letter box
 function makeLetterBox(letter) {
   const box = document.createElement("div");
+
   box.className = "letter";
   box.textContent = letter.toUpperCase();
+
   return box;
 }
 
-// 6. When the player clicks Submit
+// 7. Submit button
 submitBtn.onclick = function () {
   const inputs = document.querySelectorAll(".letter-input");
   let allCorrect = true;
 
-  // Check every empty box
   for (const input of inputs) {
     const position = Number(input.dataset.position);
     const typedLetter = input.value.toLowerCase();
@@ -135,56 +132,74 @@ submitBtn.onclick = function () {
     }
   }
 
-  // If everything is right, the player wins
+  // Correct answer
   if (allCorrect) {
     score = score + 20;
+
     scoreDisplay.textContent = score;
+
+    // Show happy emoji first
     face.textContent = "😃";
     message.textContent = "Correct! You found the word.";
 
-    alert("🎉 Congratulations! You won the game!");
+    // Show alert after emoji appears
+    setTimeout(function () {
+      alert("🎉 Congratulations! You won the game!");
+    }, 300);
 
     submitBtn.disabled = true;
+
     return;
   }
 
-  // Otherwise it's a wrong move
+  // Wrong answer
   wrongMoves = wrongMoves + 1;
   score = score - 10;
+
   wrongDisplay.textContent = wrongMoves;
   scoreDisplay.textContent = score;
+
   face.textContent = "😞";
 
-  // 5 wrong moves = game over
+  // Game over
   if (wrongMoves === 5) {
     message.textContent =
       "Game Over! The word was " + currentWord.toUpperCase();
+
     submitBtn.disabled = true;
+
     return;
   }
 
-  // Show the hint
+  // Show hint
   message.textContent = "Hint: " + currentHint;
 
-  // Every 2 wrong moves, give the player a free letter
+  // Every 2 wrong moves, reveal one letter
   if (wrongMoves % 2 === 0) {
     revealOneLetter();
   }
 };
 
-// 7. Reveal one hidden letter (a free help)
+// 8. Press Enter to submit
+wordDisplay.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    submitBtn.click();
+  }
+});
+
+// 9. Reveal one hidden letter
 function revealOneLetter() {
-  // Nothing left to reveal
   if (hiddenPositions.length === 0) {
     return;
   }
 
-  // Pick a random hidden letter and remove it from the list
   const randomIndex = Math.floor(Math.random() * hiddenPositions.length);
+
   const position = hiddenPositions[randomIndex];
+
   hiddenPositions.splice(randomIndex, 1);
 
-  // Find the input box for that letter and swap it with the real letter
   const inputs = document.querySelectorAll(".letter-input");
 
   for (const input of inputs) {
@@ -195,12 +210,12 @@ function revealOneLetter() {
   }
 }
 
-// 8. Restart button
+// 10. Restart button
 restartBtn.onclick = function () {
   startGame();
 };
 
-// 9. Use left/right arrow keys to move between boxes
+// 11. Left/right arrow keys
 wordDisplay.addEventListener("keydown", function (event) {
   if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") {
     return;
@@ -220,5 +235,5 @@ wordDisplay.addEventListener("keydown", function (event) {
   event.preventDefault();
 });
 
-// 10. Start the game when the page opens
+// 12. Start the game
 startGame();

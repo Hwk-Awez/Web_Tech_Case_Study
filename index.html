@@ -1,19 +1,55 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Word Game</title>
+
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <div class="container">
-      <h1>Word Game</h1>
+      <!-- Word Game -->
+      <div class="game-card">
+        <h1>Word Game</h1>
+        <p>Challenge your vocabulary and find the correct words.</p>
 
-      <p>Challenge your vocabulary and find the correct words.</p>
+        <form action="game.html">
+          <button type="submit">Start Game</button>
+        </form>
+      </div>
 
-      <form action="game.html">
-        <button type="submit">Start Game</button>
-      </form>
+      <!-- Jumbled Words -->
+      <div class="game-card">
+        <h1>Jumbled Words</h1>
+        <p>Arrange the jumbled words to make a correct sentence.</p>
+
+        <form action="jumbled.html">
+          <button type="submit">Start Game</button>
+        </form>
+      </div>
+
+      <!-- Synonyms Game -->
+      <div class="game-card">
+        <h1>Synonyms Game</h1>
+        <p>Choose the word with the same meaning.</p>
+
+        <form action="synonyms/synonyms.html">
+          <button type="submit">Start Game</button>
+        </form>
+      </div>
+
+      <!-- Antonyms Game -->
+      <div class="game-card">
+        <h1>Antonyms Game</h1>
+        <p>Choose the word with the opposite meaning.</p>
+
+        <form action="antonyms/antonyms.html">
+          <button type="submit">Start Game</button>
+        </form>
+      </div>
     </div>
   </body>
 </html>
