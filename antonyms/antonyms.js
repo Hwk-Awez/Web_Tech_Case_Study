@@ -60,130 +60,6 @@ const questions = [
     options: ["Small", "Old", "New", "Fresh"],
     answer: "Old",
   },
-
-  // Moderate
-
-  {
-    word: "Brave",
-    options: ["Courageous", "Fearless", "Cowardly", "Strong"],
-    answer: "Cowardly",
-  },
-
-  {
-    word: "Honest",
-    options: ["Truthful", "Dishonest", "Fair", "Reliable"],
-    answer: "Dishonest",
-  },
-
-  {
-    word: "Dangerous",
-    options: ["Risky", "Unsafe", "Safe", "Deadly"],
-    answer: "Safe",
-  },
-
-  {
-    word: "Important",
-    options: ["Useful", "Necessary", "Unimportant", "Valuable"],
-    answer: "Unimportant",
-  },
-
-  {
-    word: "Increase",
-    options: ["Grow", "Rise", "Decrease", "Expand"],
-    answer: "Decrease",
-  },
-
-  {
-    word: "Accept",
-    options: ["Receive", "Agree", "Reject", "Allow"],
-    answer: "Reject",
-  },
-
-  {
-    word: "Create",
-    options: ["Build", "Make", "Destroy", "Develop"],
-    answer: "Destroy",
-  },
-
-  {
-    word: "Remember",
-    options: ["Recall", "Forget", "Learn", "Understand"],
-    answer: "Forget",
-  },
-
-  {
-    word: "Quiet",
-    options: ["Silent", "Peaceful", "Noisy", "Calm"],
-    answer: "Noisy",
-  },
-
-  {
-    word: "Success",
-    options: ["Victory", "Achievement", "Failure", "Progress"],
-    answer: "Failure",
-  },
-
-  // Challenging
-
-  {
-    word: "Abundant",
-    options: ["Plentiful", "Limited", "Excessive", "Numerous"],
-    answer: "Limited",
-  },
-
-  {
-    word: "Ancient",
-    options: ["Old", "Historic", "Modern", "Traditional"],
-    answer: "Modern",
-  },
-
-  {
-    word: "Permanent",
-    options: ["Fixed", "Stable", "Temporary", "Lasting"],
-    answer: "Temporary",
-  },
-
-  {
-    word: "Expand",
-    options: ["Increase", "Extend", "Contract", "Develop"],
-    answer: "Contract",
-  },
-
-  {
-    word: "Generous",
-    options: ["Kind", "Helpful", "Selfish", "Giving"],
-    answer: "Selfish",
-  },
-
-  {
-    word: "Visible",
-    options: ["Clear", "Noticeable", "Hidden", "Obvious"],
-    answer: "Hidden",
-  },
-
-  {
-    word: "Artificial",
-    options: ["Man-made", "Synthetic", "Natural", "Created"],
-    answer: "Natural",
-  },
-
-  {
-    word: "Complex",
-    options: ["Complicated", "Difficult", "Simple", "Advanced"],
-    answer: "Simple",
-  },
-
-  {
-    word: "Flexible",
-    options: ["Adaptable", "Adjustable", "Rigid", "Changeable"],
-    answer: "Rigid",
-  },
-
-  {
-    word: "Optimistic",
-    options: ["Hopeful", "Positive", "Pessimistic", "Confident"],
-    answer: "Pessimistic",
-  },
 ];
 
 let currentQuestion = 0;
@@ -193,21 +69,21 @@ let selectedAnswer = null;
 let answered = false;
 
 const wordElement = document.getElementById("word");
-
 const optionsElement = document.getElementById("options");
-
 const messageElement = document.getElementById("message");
-
 const scoreElement = document.getElementById("score");
-
 const questionNumberElement = document.getElementById("questionNumber");
 
 const submitBtn = document.getElementById("submitBtn");
-
 const nextBtn = document.getElementById("nextBtn");
-
 const restartBtn = document.getElementById("restartBtn");
 
+// Shuffle questions randomly
+function shuffleQuestions() {
+  questions.sort(() => Math.random() - 0.5);
+}
+
+// Load question
 function loadQuestion() {
   const question = questions[currentQuestion];
 
@@ -248,6 +124,7 @@ function loadQuestion() {
   });
 }
 
+// Submit answer
 submitBtn.addEventListener("click", function () {
   if (answered) {
     return;
@@ -255,7 +132,6 @@ submitBtn.addEventListener("click", function () {
 
   if (selectedAnswer === null) {
     messageElement.textContent = "Please select an option.";
-
     return;
   }
 
@@ -290,6 +166,7 @@ submitBtn.addEventListener("click", function () {
   }
 });
 
+// Next question
 nextBtn.addEventListener("click", function () {
   if (currentQuestion < questions.length - 1) {
     currentQuestion++;
@@ -303,6 +180,7 @@ nextBtn.addEventListener("click", function () {
   }
 });
 
+// Restart game
 restartBtn.addEventListener("click", function () {
   currentQuestion = 0;
 
@@ -312,7 +190,13 @@ restartBtn.addEventListener("click", function () {
 
   nextBtn.disabled = false;
 
+  // Shuffle questions again
+  shuffleQuestions();
+
   loadQuestion();
 });
+
+// Shuffle questions when the game starts
+shuffleQuestions();
 
 loadQuestion();
