@@ -20,39 +20,26 @@ const sentences = [
 
   // Moderate
 
-  "Our teacher explains every lesson very clearly.",
-  "Regular practice helps students become better programmers.",
-  "The train to Puri leaves early in the morning.",
-  "She finished her homework before the dinner was ready.",
-  "Learning a new language takes patience and daily effort.",
-  "The library is quiet because the exams start tomorrow.",
-  "He saved some money to buy a new laptop.",
-  "Good friends always support each other in difficult times.",
-  "The web page changes colour when you click the button.",
-  "Many people use mobile phones to learn new skills.",
-
-  // Challenging
-
-  "Although the weather was bad, we continued our journey.",
-  "The students completed their project before the deadline.",
-  "If you practice regularly, you will improve your programming skills.",
-  "She prepared carefully for the presentation because it was important.",
-  "The computer stopped working while I was completing my assignment.",
-  "After finishing his homework, he went outside to play football.",
-  "The team developed a new application to solve the problem.",
-  "We should check the code carefully before submitting the project.",
-  "He could not attend the meeting because he had an important class.",
-  "The teacher asked the students to explain how the program works.",
-  "Even though the task was difficult, everyone worked together.",
-  "The application becomes faster when unnecessary processes are removed.",
-  "Before starting the experiment, we carefully checked all the equipment.",
-  "She learned programming by solving problems and building small projects.",
-  "The developers fixed the error after carefully examining the code.",
-  "When the internet connection was restored, the students continued their work.",
-  "The project was successful because every team member completed their responsibility.",
-  "If the weather remains clear, we will visit the beach tomorrow morning.",
-  "The student who submitted the assignment early received positive feedback.",
-  "Using technology effectively can help students learn difficult concepts more easily.",
+  "Our teacher explains every lesson clearly.",
+  "Regular practice helps students learn better.",
+  "The train to Puri leaves in the morning.",
+  "She finished her homework before dinner.",
+  "Learning a new language takes daily practice.",
+  "The library is quiet during the exams.",
+  "He saved money to buy a new laptop.",
+  "Good friends always help each other.",
+  "The web page changes when you click the button.",
+  "Many people use mobile phones to learn.",
+  "My brother enjoys playing games after school.",
+  "We visited the park with our friends.",
+  "The students are preparing for their exams.",
+  "She likes watching movies with her family.",
+  "The teacher gave us an interesting activity.",
+  "I usually complete my homework in the evening.",
+  "The computer works faster after the update.",
+  "They went to the market to buy vegetables.",
+  "My friends and I practice football every evening.",
+  "The internet helps us find information quickly.",
 ];
 
 // 2. Game variables
@@ -94,9 +81,15 @@ function startGame() {
 }
 
 // 5. Load a sentence
+// 5. Load a sentence
 function loadSentence() {
   currentSentence = sentences[Math.floor(Math.random() * sentences.length)];
   selectedWords = [];
+
+  // Reset previous question
+  message.textContent = "";
+  face.textContent = "🙂";
+  submitBtn.disabled = false;
 
   // Split the sentence into words and shuffle them
   jumbledWords = currentSentence.replace(".", "").split(" ");
